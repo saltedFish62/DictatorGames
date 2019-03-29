@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>独裁者博弈</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./dictator.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="alert alert-danger" role="alert" id="alertBar" style="display: none;"></div>
+    <!-- 第一个页面 -->
+    <div class="container" id="home">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-md-4 description">请在下方方框中输入您的实验编号和手机号码，为了保证您的实验信息前后对应，
+          请务必正确填写信息并和问卷中的信息保持一致，谢谢！
+          <br>填写完毕后请按继续按钮进入实验部分
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-2 t-hint">实验编号:</div>
+        <div class="col-xs-5"><input type="text" id="num"/></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-2 t-hint">手机号码:</div>
+        <div class="col-xs-5"><input type="text" id="phone"/></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2 col-xs-offset-5"><button id="home_btn" style="display: none;">继续</button></div>
+      </div>
+    </div>
+
+    <!-- 第二个页面 -->
+    <div class="container" id="gameDes_1">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 description">欢迎参与实验！请认真阅读指导语：
+            该部分为联网博弈游戏，我们将随机从预约在同一时段的且已经答完第一部分问卷的参与者中抽取一名参与者作为你的搭档，来完成分配金额任务。   
+           本次任务共有2个角色“分配者”和“接受者”，其中分配者将起主导作用，决定每次金额的分配情况，而无论分配者给出什么样的分配，接受者只能被动接受。本次任务将根据您和您的搭档填写的预约问卷中相关题目得分来分配相应的角色。
+           任务将包括4次分配金额的任务，每次任务之间不存在任何关系。我们将随机抽取一次任务的分配比例作为您和您搭档最终的额外被试费的分配比例，即提议者不仅决定本次任务中所有的金额分配，还将决定本次实验额外被试费的分配情况。
+            如若您已阅读完毕并理解实验流程，请按继续键(60秒后方出现)。
+            如果有任何问题，请马上联系主试再进行实验，谢谢！</div>
+      </div>
+      <div class="row">
+          <div class="col-xs-2 col-xs-offset-5"><button id="des_btn_1" style="display: none">继续</button></div>
+        </div>
+    </div>
+
+    <!-- 第三个页面 -->
+    <div class="container" id="gameDes_2">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 description"><span style="color: red">通过计算你之前填写的预约问卷中相关题目的得分,<br>恭喜您是分配者！<br>
+            您的实验任务为决定金额分配。</span><br>请根据总金额分配您和您搭档各获得多少钱，依次填入对应的框内，并按确认键。然后我们会将您的分配结果发给您的搭档，
+            <span style="color:red"><br>您的搭档只能被动接受您的分配。</span><br>
+            请注意，我们将随机抽取一次作为您和您的搭档额外被试费分配。<span style="color:red"><br>这意味着您一定程度上可以决定您的实验报酬！</span><br>
+            如若您已阅读完毕并理解实验流程，请按继续键(20秒后出现)。<br>
+            如果有任何问题，请马上联系主试再进行实验，谢谢！
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-5"><button id="des_btn_2" style="display: none">继续</button></div>
+          </div>
+      </div>
+
+      <!-- 第四个页面 -->
+      <div class="container" id="waiting_1">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1">同一时段正在等待匹配搭档的参与者有<span id="p_num" style="color:red"></span>人，请耐心等待匹配
+            </div>
+        </div>
+      </div>
+
+      <!-- 第五个页面 -->
+      <div class="container" id="alloc">
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-4">本次分配金额<span style="color:red" id="price">100</span>元</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-xs-offset-4"><span style="color:red">您决定的分配</span>是：</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-4">您获得：</div>
+          <div class="col-xs-1"><input id="alloc_money_my_1"></div>
+          <div class="col-xs-1">元</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4 col-xs-offset-4">您的搭档获得:</div>
+          <div class="col-xs-1"><input id="alloc_money_p_1"></div>
+          <div class="col-xs-1">元</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-6"><button id="alloc_btn" style="display: none">继续</button></div>
+        </div>
+      </div>
+
+      <!-- 第六个页面 -->
+      <div class="container" id="waiting_2">
+        <div class="row">
+          <div class="col-xs-9 col-xs-offset-2">您的分配结果正发给您的搭档，您的搭档完成接受任务后，<br>将自动跳转至下一次分配任务，请稍等</div>
+        </div>
+      </div>
+
+      <!-- 第七个页面 -->
+      <div class="container" id="final_page">
+          <div class="row">
+            <div class="col-xs-9 col-xs-offset-2" id="final_hint">您的分配结果正发给您的搭档，由于本次任务是最后一次分配任务，<br>所以当您的搭档完成接受任务后，将自动跳转结束页面，请稍等</div>
+          </div>
+        </div>
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="./dictator.js"></script>
+  </body>
+</html>
