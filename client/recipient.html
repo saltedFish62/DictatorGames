@@ -9,12 +9,12 @@
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .container {height: 50vh;position: absolute;top: 25%;display: none;}
-        .description {text-align: center;}
-        input {width: 100%;}
-        .t-hint {text-align: right;}
-        .row div {padding: 2% 0 2% 0;}
-      </style>
+      .container {height: 50vh;position: absolute;top: 25%;display: none;}
+      .description {text-align: center;}
+      input {width: 100%;}
+      .t-hint {text-align: right;}
+      .row div {padding: 2% 0 2% 0;}
+    </style>
   </head>
   <body>
     <div class="alert alert-danger" role="alert" id="alertBar" style="display: none;"></div>
@@ -57,10 +57,11 @@
     <!-- 第三个页面 -->
     <div class="container" id="gameDes_2">
         <div class="row">
-          <div class="col-xs-10 col-xs-offset-1 description"><span style="color: red">通过计算你之前填写的预约问卷中相关题目的得分,<br>恭喜您是分配者！<br>
-            您的实验任务为决定金额分配。</span><br>请根据总金额分配您和您搭档各获得多少钱，依次填入对应的框内，并按确认键。然后我们会将您的分配结果发给您的搭档，
-            <span style="color:red"><br>您的搭档只能被动接受您的分配。</span><br>
-            请注意，我们将随机抽取一次作为您和您的搭档额外被试费分配。<span style="color:red"><br>这意味着您一定程度上可以决定您的实验报酬！</span><br>
+          <div class="col-xs-10 col-xs-offset-1 description"><span style="color: red">通过计算你之前填写的预约问卷中相关题目的得分,<br>很遗憾你是接受者！<br></span>
+            您的实验任务为<span style="color: red">被动接受金额分配</span>。<br>你的搭档会根据总金额分配他和你各获得多少钱，然后我们会将他分配好的结果呈现在你的屏幕上，
+            <span style="color:red"><br>你只能接受他的分配</span>。<br>
+            但是，我们仍然需要了解你对金额分配的想法，所以你需填写在该总金额下你最低能够接受的金额。<br>请注意，我们将随机抽取一次作为你和你的搭档额外被试费分配。
+            <span style="color:red"><br>这意味着你的搭档一定程度上决定你的实验报酬！</span><br>
             如若您已阅读完毕并理解实验流程，请按继续键(20秒后出现)。<br>
             如果有任何问题，请马上联系主试再进行实验，谢谢！
               </div>
@@ -84,16 +85,24 @@
             <div class="col-xs-6 col-xs-offset-4">本次分配金额<span style="color:red" id="price">100</span>元</div>
         </div>
         <div class="row">
-          <div class="col-xs-6 col-xs-offset-4"><span style="color:red">您决定的分配</span>是：</div>
+          <div class="col-xs-8 col-xs-offset-4"><span style="color:red">你搭档决定的分配</span>是：</div>
         </div>
         <div class="row">
           <div class="col-xs-3 col-xs-offset-4 col-md-2 col-md-offset-4">您获得：</div>
-          <div class="col-xs-1 col-md-1"><input id="alloc_money_my_1"></div>
+          <div class="col-xs-1 col-md-1"><span style="color: red;" id="m_money"></span></div>
           <div class="col-xs-1 col-md-1">元</div>
         </div>
         <div class="row">
           <div class="col-xs-4 col-xs-offset-4 col-md-2 col-md-offset-4">您的搭档获得:</div>
-          <div class="col-xs-1 col-md-1"><input id="alloc_money_p_1"></div>
+          <div class="col-xs-1 col-md-1"><span style="color: red;" id="p_money"></span></div>
+          <div class="col-xs-1">元</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-11 col-xs-offset-2">在该总金额中，你能接受分配到的最低金额</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-5 col-xs-offset-4">最低金额：</div>
+          <div class="col-xs-1"><input type="text" id="lowest"></div>
           <div class="col-xs-1">元</div>
         </div>
         <div class="row">
@@ -119,6 +128,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
-    <script src="./dictator.js"></script>
+    <script src="./recipient.js"></script>
   </body>
 </html>
