@@ -1,6 +1,13 @@
-import os, json
-from flask import Flask, request
-app = Flask(__name__)
+from flask import Flask, request, render_template
+app = Flask(__name__, static_folder='../client/', template_folder='../client/')
+
+@app.route('/', methods=['POST', 'GET'])
+def hello_world():
+    return '<h1>白给</h1>'
+
+@app.route('/index', methods=['POST', 'GET'])
+def index():
+    return render_template('dictator.html')
 
 @app.route('/sendrres', methods=['POST'])
 def processd():
@@ -28,4 +35,4 @@ def processr():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=80)
