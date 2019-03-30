@@ -1,5 +1,5 @@
-const WAITTIME_60 = 60000;
-const WAITTIME_20 = 20000;
+const WAITTIME_60 = 60;
+const WAITTIME_20 = 20;
 const WAITTIME_ran = Math.round(Math.random() * 5000);
 const duriation = 400;
 
